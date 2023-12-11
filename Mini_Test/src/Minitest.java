@@ -1,10 +1,10 @@
-
 import java.util.Scanner;
 
-public class CaseStudyy {
+public class Minitest {
+
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         String user, password;
         int attempt = 0;
 
@@ -16,7 +16,7 @@ public class CaseStudyy {
             password = scanner.nextLine();
             attempt++;
             if (user.equals("admin") && password.equals("123456")) {
-                displayMenu(scanner);
+                displayMenu();
                 break;
             } else if (attempt < 3) {
                 System.out.println("Incorrect user or password, try again.");
@@ -29,26 +29,27 @@ public class CaseStudyy {
     }
 
     // Bai 2: Display menu and draw
-    public static void displayMenu(Scanner scanner) {
+    public static void displayMenu() {
         int choice;
         do {
-            System.out.println("Menu:");
+            System.out.println("\\nMenu:");
             System.out.println("1. Draw a rectangle");
             System.out.println("2. Draw a right-angled triangle");
             System.out.println("3. Draw an isosceles triangle");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
-                    drawRectangle(scanner);
+                    drawRectangle();
                     break;
                 case 2:
-                    drawRightAngledTriangle(scanner);
+                    drawRightAngledTriangle();
                     break;
                 case 3:
-                    drawIsoscelesTriangle(scanner);
+                    drawIsoscelesTriangle();
                     break;
                 case 0:
                     break;
@@ -58,11 +59,12 @@ public class CaseStudyy {
         } while (choice != 0);
     }
 
-    public static void drawRectangle(Scanner scanner) {
+    public static void drawRectangle() {
         System.out.print("Enter the width: ");
         int width = scanner.nextInt();
         System.out.print("Enter the height: ");
         int height = scanner.nextInt();
+        scanner.nextLine();
 
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
@@ -72,9 +74,10 @@ public class CaseStudyy {
         }
     }
 
-    public static void drawRightAngledTriangle(Scanner scanner) {
+    public static void drawRightAngledTriangle() {
         System.out.print("Enter the length of the right-angled side: ");
         int side = scanner.nextInt();
+        scanner.nextLine();
 
         for (int i = 0; i < side; i++) {
             for (int j = 0; j <= i; j++) {
@@ -84,11 +87,12 @@ public class CaseStudyy {
         }
     }
 
-    public static void drawIsoscelesTriangle(Scanner scanner) {
+    public static void drawIsoscelesTriangle() {
         System.out.print("Enter the height: ");
         int height = scanner.nextInt();
         System.out.print("Enter the base length: ");
         int base = scanner.nextInt();
+        scanner.nextLine();
 
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < base / 2 - i; j++) {
